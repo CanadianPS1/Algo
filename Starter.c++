@@ -1,9 +1,12 @@
 #include <iostream>
-#include <memory>
 #include "Starter.h"
-void::Runner MainMethod(){
-    cout<<"hello world";
+#include "Testing/Test.h"
+void Runner::MainMethod(){
+    Test test;
+    std::cout << test.Addition(5, 10) << std::endl;
 }
 int main(){
+    Runner run;
+    run.MainMethod();
     return 0;
 }
