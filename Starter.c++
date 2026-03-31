@@ -1,9 +1,10 @@
 #include <iostream>
 #include "Starter.h"
 #include "Testing/Test.h"
+#include "BubbleSort/BubbleSort.h"
 void Runner::MainMethod(){
-    Test test;
-    std::cout << test.Addition(5, 10) << std::endl;
+    BubbleSort bubble;
+    bubble.Sort();
 }
 int main(){
     Runner run;
