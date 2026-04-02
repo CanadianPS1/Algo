@@ -6,6 +6,7 @@
 #include "../External/catch_amalgamated.hpp"
 #include "../Testing/Test.h"
 #include "../BubbleSort/BubbleSort.h"
+#include "../Selection/Selection.h"
 #include "../LeetCode/LeetCode1.c++"
 #include <bits/stdc++.h>
 /*
@@ -83,6 +84,59 @@ TEST_CASE("Can Handle Empty Array"){
     REQUIRE(arraySorted == true);
 }
 
+
+/*
+
+Selection Sort
+
+*/
+
+TEST_CASE("Selection Sort Can Sort Array"){
+    std::vector<int> arrSorted = {1,2,3,4,5,6,7,8,9,10,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30};
+    std::vector<int> arr = arrSorted;
+    for(int i = arr.size() - 1; i >= 0; i--){
+        int j = rand() % (i + 1);
+        int temp = arr[i];
+        arr[i] = arr[j];
+        arr[j] = temp;
+    }
+    bool arraySorted = true;
+    auto sTime = std::chrono::high_resolution_clock::now();
+    SelectionSort<int> selection;
+    arr = selection.Sort(arr);
+    auto eTime = std::chrono::high_resolution_clock::now();
+    std::cout<< std::chrono::duration_cast<std::chrono::nanoseconds>(eTime - sTime).count()<<"nanoseconds";
+    for(int i = 0; i < arr.size(); i++){
+        if(arr[i] != arrSorted[i]) arraySorted = false;
+    }
+    REQUIRE(arraySorted == true);
+}
+TEST_CASE("Selection Sort Can Handle 1 Item"){
+    std::vector<int> arrSorted = {1};
+    std::vector<int> arr = arrSorted;
+    bool arraySorted = true;
+    auto sTime = std::chrono::high_resolution_clock::now();
+    SelectionSort<int> selection;
+    arr = selection.Sort(arr);
+    auto eTime = std::chrono::high_resolution_clock::now();
+    for(int i = 0; i < arr.size(); i++){
+        if(arr[i] != arrSorted[i]) arraySorted = false;
+    }
+    REQUIRE(arraySorted == true);
+}
+
+TEST_CASE("Selection Sort Can Handle Empty Array"){
+    std::vector<int> arr = {};
+    std::vector<int> arrSorted = {};
+    SelectionSort<int> selection;
+    bool arraySorted = true;
+    arr = selection.Sort(arr);
+    for(int i = 0; i < arr.size(); i++){
+        if(arr[i] != arrSorted[i]) arraySorted = false;
+    }
+    REQUIRE(arraySorted == true);
+}
+
 /*
 
     Leet Code
@@ -100,5 +154,13 @@ TEST_CASE("Checks if it finds the sum"){
         std::cout<<arr[i]<<std::endl;
         if(arr[i] != answer[i]) answered = false;
     }
+    REQUIRE(answered == true);
+}
+TEST_CASE("checks if it gives the write index"){
+    int answer;
+    AddTwoNumbers add;
+    bool answered = false;
+    answer = add.strStr("Grinch", "r");
+    if(answer == 1) answered = true;
     REQUIRE(answered == true);
 }
