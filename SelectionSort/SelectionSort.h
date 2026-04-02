@@ -1,14 +1,9 @@
 #include <iostream>
 #include <vector>
 /*
-For Loop
-    For Loop
-        check if the place is bigger then the next
-            swap
-        else 
-            skip
-OC = O(n ^2)
-SC = O(1)
+
+OC = 
+SC = 
 */
 template <typename T>
 class SelectionSort{
