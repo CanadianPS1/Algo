@@ -99,43 +99,44 @@ TEST_CASE("Selection Sort Can Sort Array"){
         int temp = arr[i];
         arr[i] = arr[j];
         arr[j] = temp;
+        //std::cout<<"unsorted at ~"<<(i + 1)<<"~ : "<<arr[i]<<std::endl;
     }
     bool arraySorted = true;
     auto sTime = std::chrono::high_resolution_clock::now();
     SelectionSort<int> selection;
     arr = selection.Sort(arr);
     auto eTime = std::chrono::high_resolution_clock::now();
-    std::cout<< std::chrono::duration_cast<std::chrono::nanoseconds>(eTime - sTime).count()<<"nanoseconds";
+    //std::cout<<std::chrono::duration_cast<std::chrono::nanoseconds>(eTime - sTime).count()<<"nanoseconds"<<std::endl;
     for(int i = 0; i < arr.size(); i++){
         if(arr[i] != arrSorted[i]) arraySorted = false;
     }
     REQUIRE(arraySorted == true);
 }
-// TEST_CASE("Selection Sort Can Handle 1 Item"){
-//     std::vector<int> arrSorted = {1};
-//     std::vector<int> arr = arrSorted;
-//     bool arraySorted = true;
-//     auto sTime = std::chrono::high_resolution_clock::now();
-//     SelectionSort<int> selection;
-//     arr = selection.Sort(arr);
-//     auto eTime = std::chrono::high_resolution_clock::now();
-//     for(int i = 0; i < arr.size(); i++){
-//         if(arr[i] != arrSorted[i]) arraySorted = false;
-//     }
-//     REQUIRE(arraySorted == true);
-// }
+TEST_CASE("Selection Sort Can Handle 1 Item"){
+    std::vector<int> arrSorted = {1};
+    std::vector<int> arr = arrSorted;
+    bool arraySorted = true;
+    auto sTime = std::chrono::high_resolution_clock::now();
+    SelectionSort<int> selection;
+    arr = selection.Sort(arr);
+    auto eTime = std::chrono::high_resolution_clock::now();
+    for(int i = 0; i < arr.size(); i++){
+        if(arr[i] != arrSorted[i]) arraySorted = false;
+    }
+    REQUIRE(arraySorted == true);
+}
 
-// TEST_CASE("Selection Sort Can Handle Empty Array"){
-//     std::vector<int> arr = {};
-//     std::vector<int> arrSorted = {};
-//     SelectionSort<int> selection;
-//     bool arraySorted = true;
-//     arr = selection.Sort(arr);
-//     for(int i = 0; i < arr.size(); i++){
-//         if(arr[i] != arrSorted[i]) arraySorted = false;
-//     }
-//     REQUIRE(arraySorted == true);
-// }
+TEST_CASE("Selection Sort Can Handle Empty Array"){
+    std::vector<int> arr = {};
+    std::vector<int> arrSorted = {};
+    SelectionSort<int> selection;
+    bool arraySorted = true;
+    arr = selection.Sort(arr);
+    for(int i = 0; i < arr.size(); i++){
+        if(arr[i] != arrSorted[i]) arraySorted = false;
+    }
+    REQUIRE(arraySorted == true);
+}
 
 /*
 
@@ -151,7 +152,7 @@ TEST_CASE("Checks if it finds the sum"){
     bool answered = true;
     arr = twoSum.twoSum(arr, 6);
     for(int i = 0; i < arr.size(); i++){
-        std::cout<<arr[i]<<std::endl;
+        //std::cout<<arr[i]<<std::endl;
         if(arr[i] != answer[i]) answered = false;
     }
     REQUIRE(answered == true);

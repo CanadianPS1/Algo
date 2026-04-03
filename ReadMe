@@ -2,5 +2,5 @@ Compile in mingw64
 Compile Script: g++ -std=c++20 Starter.c++ Testing/Test.c++ -o run.exe
 Run Script: ./run
 
-Test Compile Script :  g++ -std=c++20 TestCases/*.c++ BubbleSort/BubbleSort.h Testing/Test.c++ external/catch_amalgamated.cpp -o tests.exe
+Test Compile Script :  g++ -std=c++20 TestCases/*.c++ BubbleSort/BubbleSort.h SelectionSort/SelectionSort.h Testing/Test.c++ external/catch_amalgamated.cpp -o tests.exe
 Test Run Script : ./tests

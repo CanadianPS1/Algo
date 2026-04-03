@@ -1,26 +1,31 @@
 #include <iostream>
 #include <vector>
 /*
-
-OC = 
-SC = 
+Loop through each value vs each value
+check if the j value is lower then the lowest found j value
+check if the smallest value is less then the i value
+if it is swap them
+OC = O(n^2)
+SC = O(1)
 */
 template <typename T>
 class SelectionSort{
     public:
     std::vector<T> Sort(std::vector<T> arr){
-        int lowestNumber;
         int size = arr.size();
-        for(int i = 0; i < size; i++){
-            for(int j = 0; j < (size - i - 1); i++){
-                if(arr[j + i + 1] < arr[lowestNumber]) lowestNumber = (j + i + 1);
+        if(size > 0){
+            int lowestNumber = arr[0];
+            for(int i = 0; i < size; i++){
+                lowestNumber = i;
+                for(int j = (i + 1); j < size; j++){
+                    if(arr[j] < arr[lowestNumber]) lowestNumber = j;
+                }
+                if(arr[lowestNumber] < arr[i]){
+                    int temp = arr[i];
+                    arr[i] = arr[lowestNumber];
+                    arr[lowestNumber] = temp;
+                }
             }
-            if(arr[lowestNumber] < arr[i]){
-                int temp = arr[i];
-                arr[i] = arr[lowestNumber];
-                arr[lowestNumber] = temp;
-            }
-            std::cout<<arr[i]<<std::endl;
         }
         return arr;
     }
