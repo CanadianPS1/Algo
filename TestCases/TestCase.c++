@@ -7,6 +7,7 @@
 #include "../Testing/Test.h"
 #include "../BubbleSort/BubbleSort.h"
 #include "../SelectionSort/SelectionSort.h"
+#include "../InsertionSort/InsertionSort.h"
 #include "../LeetCode/LeetCode1.c++"
 #include <bits/stdc++.h>
 /*
@@ -38,7 +39,11 @@ For Bubble Sort
 */
 
 TEST_CASE("Bubble Sort Can Sort Array"){
-    std::vector<int> arrSorted = {1,2,3,4,5,6,7,8,9,10,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30};
+    std::vector<int> arrSorted;
+    int amount = 30;
+    for(int i = 1; i <= amount; i++){
+        arrSorted.push_back(i);
+    }
     std::vector<int> arr = arrSorted;
     for(int i = arr.size() - 1; i >= 0; i--){
         int j = rand() % (i + 1);
@@ -51,7 +56,7 @@ TEST_CASE("Bubble Sort Can Sort Array"){
     BubbleSort<int> bubble;
     arr = bubble.Sort(arr);
     auto eTime = std::chrono::high_resolution_clock::now();
-    //std::cout<< std::chrono::duration_cast<std::chrono::nanoseconds>(eTime - sTime).count()<<"nanoseconds";
+    //std::cout<<"   Bubble Sort: "<<std::chrono::duration_cast<std::chrono::nanoseconds>(eTime - sTime).count()<<" nanoseconds"<<std::endl;
     for(int i = 0; i < arr.size(); i++){
         if(arr[i] != arrSorted[i]) arraySorted = false;
     }
@@ -92,7 +97,11 @@ Selection Sort
 */
 
 TEST_CASE("Selection Sort Can Sort Array"){
-    std::vector<int> arrSorted = {1,2,3,4,5,6,7,8,9,10,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30};
+    std::vector<int> arrSorted;
+    int amount = 30;
+    for(int i = 1; i <= amount; i++){
+        arrSorted.push_back(i);
+    }
     std::vector<int> arr = arrSorted;
     for(int i = arr.size() - 1; i >= 0; i--){
         int j = rand() % (i + 1);
@@ -106,7 +115,7 @@ TEST_CASE("Selection Sort Can Sort Array"){
     SelectionSort<int> selection;
     arr = selection.Sort(arr);
     auto eTime = std::chrono::high_resolution_clock::now();
-    //std::cout<<std::chrono::duration_cast<std::chrono::nanoseconds>(eTime - sTime).count()<<"nanoseconds"<<std::endl;
+    //std::cout<<"Selection Sort: "<<std::chrono::duration_cast<std::chrono::nanoseconds>(eTime - sTime).count()<<" nanoseconds"<<std::endl;
     for(int i = 0; i < arr.size(); i++){
         if(arr[i] != arrSorted[i]) arraySorted = false;
     }
@@ -137,6 +146,66 @@ TEST_CASE("Selection Sort Can Handle Empty Array"){
     }
     REQUIRE(arraySorted == true);
 }
+
+
+/*
+
+Insertion Sort
+
+*/
+
+TEST_CASE("Insertion Sort Can Sort Array"){
+    std::vector<int> arrSorted;
+    int amount = 10;
+    for(int i = 1; i <= amount; i++){
+        arrSorted.push_back(i);
+    }
+    std::vector<int> arr = arrSorted;
+    for(int i = arr.size() - 1; i >= 0; i--){
+        int j = rand() % (i + 1);
+        int temp = arr[i];
+        arr[i] = arr[j];
+        arr[j] = temp;
+        std::cout<<"unsorted at ~"<<(i + 1)<<"~ : "<<arr[i]<<std::endl;
+    }
+    bool arraySorted = true;
+    auto sTime = std::chrono::high_resolution_clock::now();
+    InsertionSort<int> insertion;
+    arr = insertion.Sort(arr);
+    auto eTime = std::chrono::high_resolution_clock::now();
+    std::cout<<"Insertion Sort: "<<std::chrono::duration_cast<std::chrono::nanoseconds>(eTime - sTime).count()<<" nanoseconds"<<std::endl;
+    for(int i = 0; i < arr.size(); i++){
+        std::cout<<arr[i]<<std::endl;
+        if(arr[i] != arrSorted[i]) arraySorted = false;
+    }
+    REQUIRE(arraySorted == true);
+}
+// TEST_CASE("Insertion Sort Can Handle 1 Item"){
+//     std::vector<int> arrSorted = {1};
+//     std::vector<int> arr = arrSorted;
+//     bool arraySorted = true;
+//     auto sTime = std::chrono::high_resolution_clock::now();
+//     InsertionSort<int> insertion;
+//     arr = insertion.Sort(arr);
+//     auto eTime = std::chrono::high_resolution_clock::now();
+//     for(int i = 0; i < arr.size(); i++){
+//         if(arr[i] != arrSorted[i]) arraySorted = false;
+//     }
+//     REQUIRE(arraySorted == true);
+// }
+
+// TEST_CASE("Insertion Sort Can Handle Empty Array"){
+//     std::vector<int> arr = {};
+//     std::vector<int> arrSorted = {};
+//     InsertionSort<int> insertion;
+//     bool arraySorted = true;
+//     arr = insertion.Sort(arr);
+//     for(int i = 0; i < arr.size(); i++){
+//         if(arr[i] != arrSorted[i]) arraySorted = false;
+//     }
+//     REQUIRE(arraySorted == true);
+// }
+
 
 /*
 
