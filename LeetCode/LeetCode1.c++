@@ -1,5 +1,6 @@
 #include <vector>
 #include <iostream>
+#include <unordered_map>
 using namespace std;
 //https://leetcode.com/problems/two-sum/description/
 class TwoSum{
@@ -31,3 +32,10 @@ class AddTwoNumbers{
         return haystack.find(needle);
     }
 };
+class CodeWar{
+    {
+    public:
+        static std::string orderWeight(const std::string &strng);
+    };
+
+}
