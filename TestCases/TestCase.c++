@@ -1,9 +1,10 @@
+#include "../External/catch_amalgamated.hpp"
 #include <iostream>
 #include <vector>
-#include <chrono>
+//#include <chrono>
 #include <algorithm>
 #include <random>
-#include "../External/catch_amalgamated.hpp"
+
 #include "../Testing/Test.h"
 #include "../BubbleSort/BubbleSort.h"
 #include "../SelectionSort/SelectionSort.h"
