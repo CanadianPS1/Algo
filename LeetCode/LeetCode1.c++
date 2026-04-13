@@ -16,7 +16,7 @@ class TwoSum{
                 if(nums[i] + nums[j] == target && i != j) return {i,j};
             }
         }
-        return {0,0};
+        return {0,0}; 
     }
 };
 //https://leetcode.com/problems/find-the-index-of-the-first-occurrence-in-a-string/submissions/1967168810/
@@ -32,10 +32,3 @@ class AddTwoNumbers{
         return haystack.find(needle);
     }
 };
-class CodeWar{
-    {
-    public:
-        static std::string orderWeight(const std::string &strng);
-    };
-
-}
