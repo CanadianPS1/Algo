@@ -459,17 +459,56 @@ TEST_CASE("Cube Sort Can Sort negitive Arrays"){
     Binary Search
 
 */
-// TEST_CASE("Binary Search Works with a top half num"){
-//     int amount = 30;
-//     int n;
-//     std::vector<int*> arr(n, nullptr);
-//     for(int i = 0; i < amount; i++){
-//        *arr[i] = i + 1;
-//     }
-//     int target = 26;
-//     BinarySearch search;
-//     int returned = search.Search(arr, 0, target, amount);
-//     std::cout<<"looking for : "<<target<<std::endl<<"found : "<<returned<<std::endl;
-//     REQUIRE(returned == target);
-
-// }
+//these tests were not written by ai so dw i didnt plagerise
+TEST_CASE("Binary Search Works with a top half num"){
+    int amount = 30;
+    int n;
+    std::vector<int> arr;
+    for(int i = 0; i < amount; i++){
+       arr.push_back(i + 1);
+    }
+    int target = 20;
+    BinarySearch search;
+    int returned = search.Search(arr, target, 0, amount - 1);
+    std::cout<<"looking for : "<<target<<std::endl<<"found : "<<returned<<std::endl;
+    REQUIRE(arr[returned] == target);
+}
+TEST_CASE("Binary Search Works with a bottom half num"){
+    int amount = 30;
+    int n;
+    std::vector<int> arr;
+    for(int i = 0; i < amount; i++){
+       arr.push_back(i + 1);
+    }
+    int target = 10;
+    BinarySearch search;
+    int returned = search.Search(arr, target, 0, amount - 1);
+    std::cout<<"looking for : "<<target<<std::endl<<"found : "<<returned<<std::endl;
+    REQUIRE(arr[returned] == target);
+}
+TEST_CASE("Binary Search Works with 1 item in the list"){
+    int amount = 1;
+    int n;
+    std::vector<int> arr;
+    for(int i = 0; i < amount; i++){
+       arr.push_back(i + 1);
+    }
+    int target = 1;
+    BinarySearch search;
+    int returned = search.Search(arr, target, 0, amount - 1);
+    std::cout<<"looking for : "<<target<<std::endl<<"found : "<<returned<<std::endl;
+    REQUIRE(arr[returned] == target);
+}
+TEST_CASE("Binary Search handleds empty array"){
+    int amount = 0;
+    int n;
+    std::vector<int> arr;
+    for(int i = 0; i < amount; i++){
+       arr.push_back(i + 1);
+    }
+    int target = -1;
+    BinarySearch search;
+    int returned = search.Search(arr, target, 0, amount - 1);
+    std::cout<<"looking for : "<<target<<std::endl<<"found : "<<returned<<std::endl;
+    REQUIRE(returned == target);
+}
