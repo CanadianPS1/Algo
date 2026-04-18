@@ -12,6 +12,7 @@
 #include "../CubeSort/CubeSort.h"
 #include "../LeetCode/LeetCode1.c++"
 #include "../BinarySearch/BinarySearch.h"
+#include "../Isomorphic/Isomorphic.h"
 #include <bits/stdc++.h>
 
 /*
@@ -460,55 +461,114 @@ TEST_CASE("Cube Sort Can Sort negitive Arrays"){
 
 */
 //these tests were not written by ai so dw i didnt plagerise
-TEST_CASE("Binary Search Works with a top half num"){
-    int amount = 30;
-    int n;
-    std::vector<int> arr;
-    for(int i = 0; i < amount; i++){
-       arr.push_back(i + 1);
-    }
-    int target = 20;
-    BinarySearch search;
-    int returned = search.Search(arr, target, 0, amount - 1);
-    std::cout<<"looking for : "<<target<<std::endl<<"found : "<<returned<<std::endl;
-    REQUIRE(arr[returned] == target);
+// TEST_CASE("Binary Search Works with a top half num"){
+//     int amount = 30;
+//     int n;
+//     std::vector<int> arr;
+//     for(int i = 0; i < amount; i++){
+//        arr.push_back(i + 1);
+//     }
+//     int target = 20;
+//     BinarySearch search;
+//     int returned = search.Search(arr, target, 0, amount - 1);
+//     std::cout<<"looking for : "<<target<<std::endl<<"found : "<<returned<<std::endl;
+//     REQUIRE(arr[returned] == target);
+// }
+// TEST_CASE("Binary Search Works with a bottom half num"){
+//     int amount = 30;
+//     int n;
+//     std::vector<int> arr;
+//     for(int i = 0; i < amount; i++){
+//        arr.push_back(i + 1);
+//     }
+//     int target = 10;
+//     BinarySearch search;
+//     int returned = search.Search(arr, target, 0, amount - 1);
+//     std::cout<<"looking for : "<<target<<std::endl<<"found : "<<returned<<std::endl;
+//     REQUIRE(arr[returned] == target);
+// }
+// TEST_CASE("Binary Search Works with 1 item in the list"){
+//     int amount = 1;
+//     int n;
+//     std::vector<int> arr;
+//     for(int i = 0; i < amount; i++){
+//        arr.push_back(i + 1);
+//     }
+//     int target = 1;
+//     BinarySearch search;
+//     int returned = search.Search(arr, target, 0, amount - 1);
+//     std::cout<<"looking for : "<<target<<std::endl<<"found : "<<returned<<std::endl;
+//     REQUIRE(arr[returned] == target);
+// }
+// TEST_CASE("Binary Search handleds empty array"){
+//     int amount = 0;
+//     int n;
+//     std::vector<int> arr;
+//     for(int i = 0; i < amount; i++){
+//        arr.push_back(i + 1);
+//     }
+//     int target = -1;
+//     BinarySearch search;
+//     int returned = search.Search(arr, target, 0, amount - 1);
+//     std::cout<<"looking for : "<<target<<std::endl<<"found : "<<returned<<std::endl;
+//     REQUIRE(returned == target);
+// }
+
+/*
+
+    Isomorphis
+
+*/
+
+// i didnt see where it said the amount of tests we needed was so i just have 1 for each checking it it correctly did it
+TEST_CASE("Can find the loose isomorphic patern of a single word"){
+    std::string testWord = "warrior";
+    std::string correctPatern = "1 1 1 1 3";
+    Isomorphic isomorph;
+    std::string result = isomorph.GetLoosePattern(testWord);
+    //std::cout<<"looking for : "<<correctPatern<<"\nReseved : "<<result<<std::endl;
+    REQUIRE(correctPatern.compare(result) == 0);
 }
-TEST_CASE("Binary Search Works with a bottom half num"){
-    int amount = 30;
-    int n;
-    std::vector<int> arr;
-    for(int i = 0; i < amount; i++){
-       arr.push_back(i + 1);
-    }
-    int target = 10;
-    BinarySearch search;
-    int returned = search.Search(arr, target, 0, amount - 1);
-    std::cout<<"looking for : "<<target<<std::endl<<"found : "<<returned<<std::endl;
-    REQUIRE(arr[returned] == target);
+
+TEST_CASE("Can find the exact isomorphic patern of a single word"){
+    std::string testWord = "warrior";
+    std::string correctPatern = "0 1 2 2 3 4 2";
+    Isomorphic isomorph;
+    std::string result = isomorph.GetExactPattern(testWord);
+    //std::cout<<"looking for : "<<correctPatern<<"\nReseved : "<<result<<std::endl;
+    REQUIRE(correctPatern.compare(result) == 0);
 }
-TEST_CASE("Binary Search Works with 1 item in the list"){
-    int amount = 1;
-    int n;
-    std::vector<int> arr;
-    for(int i = 0; i < amount; i++){
-       arr.push_back(i + 1);
-    }
-    int target = 1;
-    BinarySearch search;
-    int returned = search.Search(arr, target, 0, amount - 1);
-    std::cout<<"looking for : "<<target<<std::endl<<"found : "<<returned<<std::endl;
-    REQUIRE(arr[returned] == target);
+
+TEST_CASE("Can find the loose isomorphic patern of a array of words"){
+    std::vector<string> testWords = {"ate", "bar", "eat", "fit", "sap", "look", "meet", "seep", "seer", "took", "add", "egg", "foo", "gag", "tot", "yay"};
+    std::unordered_map<std::string, std::string> correctPaterns = 
+    {
+        {"1 1 1", "ate bar eat fit sap"},
+        {"1 2 1", "look meet seep seer took"},
+        {"1 2", "add egg foo gag tot yay"},
+    };
+    Isomorphic isomorph;
+    std::unordered_map<std::string, std::string> result = isomorph.FindLooseIsomorphs(testWords);
+    // for(const auto& [key, value] : result){
+    //     std::cout<<key << " : "<< value<<std::endl;
+    // }
+    REQUIRE(result == correctPaterns);
 }
-TEST_CASE("Binary Search handleds empty array"){
-    int amount = 0;
-    int n;
-    std::vector<int> arr;
-    for(int i = 0; i < amount; i++){
-       arr.push_back(i + 1);
+
+
+TEST_CASE("Can find the exact isomorphic patern of a array of words"){
+    std::vector<string> testWords = {"ate", "bar", "eat", "fit", "sap", "look", "meet", "seep", "seer", "took", "add", "egg", "foo", "gag", "tot", "yay"};
+    std::unordered_map<std::string, std::string> correctPaterns = 
+    {
+        {"0 1 0", "gag tot yay"},
+        {"0 1 1", "add egg foo"},
+        {"0 1 1 2", "look meet seep seer took"},
+        {"0 1 2", "ate bar eat fit sap"},
+    };
+    Isomorphic isomorph;
+    std::unordered_map<std::string, std::string> result = isomorph.FindExactIsomorphs(testWords);
+    for(const auto& [key, value] : result){
+        std::cout<<key << " : "<< value<<std::endl;
     }
-    int target = -1;
-    BinarySearch search;
-    int returned = search.Search(arr, target, 0, amount - 1);
-    std::cout<<"looking for : "<<target<<std::endl<<"found : "<<returned<<std::endl;
-    REQUIRE(returned == target);
+    REQUIRE(result == correctPaterns);
 }

@@ -2,5 +2,5 @@ Compile in mingw64
 Compile Script: g++ Starter.c++ Testing/Test.c++ CubeSort/CubeSort.h BubbleSort/BubbleSort.h SelectionSort/SelectionSort.h InsertionSort/InsertionSort.h  -o run
 Run Script: ./run
 
-Test Compile Script :  g++ TestCases/*.c++ CubeSort/CubeSort.h BubbleSort/BubbleSort.h SelectionSort/SelectionSort.h InsertionSort/InsertionSort.h Testing/Test.c++ BinarySearch/BinarySearch.h External/catch_amalgamated.cpp -o tests
+Test Compile Script :  g++ TestCases/*.c++ Isomorphic/Isomorphic.h CubeSort/CubeSort.h BubbleSort/BubbleSort.h SelectionSort/SelectionSort.h InsertionSort/InsertionSort.h Testing/Test.c++ BinarySearch/BinarySearch.h External/catch_amalgamated.cpp -o tests
 Test Run Script : ./tests
