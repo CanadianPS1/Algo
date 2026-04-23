@@ -597,7 +597,7 @@ TEST_CASE("Merge Sort Can Sort Array"){
     bool arraySorted = true;
     auto sTime = std::chrono::high_resolution_clock::now();
     MergeSort<int> merge;
-    arr = merge.Sort(arr);
+    arr = merge.Sort(arr, 0, amount);
     auto eTime = std::chrono::high_resolution_clock::now();
     //std::cout<<"Merge Sort: "<<std::chrono::duration_cast<std::chrono::nanoseconds>(eTime - sTime).count()<<" nanoseconds"<<std::endl;
     for(int i = 0; i < arr.size(); i++){

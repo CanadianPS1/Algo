@@ -10,33 +10,21 @@
 template <typename T>
 class MergeSort{
     public:
-    std::vector<T> Sort(std::vector<T> arr){
-        if(arr.size() > 2){
-            std::vector<T> left;
-            std::vector<T> right;
-            for(int i = 0; i < arr.size() / 2; i++) left.push_back(arr[i]);
-            for(int i = (arr.size() - 1 / 2); (arr.size() - 1 / 2) < (arr.size() - 1); i++) right.push_back(arr[i]);
-            
-
-
-
-            std::cout<<"left array"<<std::endl;
-            for(int i = 0; i < left.size(); i++){
-                std::cout<<left[i]<<std::endl;
-            }
-            std::cout<<"right array"<<std::endl;
-            for(int i = 0; i < right.size(); i++){
-                std::cout<<right[i]<<std::endl;
-            }
-            right = Sort(right);
-            left = Sort(left);
-            return right;
-        }else{
-            // std::cout<<"new array"<<std::endl;
-            // for(int i = 0; i < arr.size(); i++){
-            //     std::cout<<arr[i]<<std::endl;
-            // }
-            return arr;
-        }
+    std::vector<T> Sort(std::vector<T> arr, int start, int end){
+        MergeSorting(arr, start, end);
+        return arr;
+        
+    }
+    void MergeSorting(std::vector<T> &arr, int start, int end){
+        if(arr.size() > 0){
+            if(start > end) return;
+            int middle = (start - end) / 2;
+            MergeSorting(arr, start, middle);
+            MergeSorting(arr, middle + 1, end);
+            Merge(arr, start, middle, end);
+        }else return;
+    }
+    void Merge(std::vector<T> &arr, int start, int middle, int end){
+        std::cout<<"merging"<<std::endl;
     }
 };
