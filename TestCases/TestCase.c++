@@ -16,7 +16,7 @@
 #include "../BinarySearch/BinarySearch.h"
 #include "../Isomorphic/Isomorphic.h"
 #include <bits/stdc++.h>
-int amount = 50;
+int amount = 10;
 /*
 
 For the Test class
@@ -581,32 +581,31 @@ TEST_CASE("Can find the exact isomorphic patern of a array of words"){
 
 */
 
-// TEST_CASE("Merge Sort Can Sort Array"){
-//     std::vector<int> arrSorted;
-//     int amount = 10;
-//     for(int i = 1; i <= amount; i++){
-//         arrSorted.push_back(i);
-//     }
-//     std::vector<int> arr = arrSorted;
-//     for(int i = arr.size() - 1; i >= 0; i--){
-//         int j = rand() % (i + 1);
-//         int temp = arr[i];
-//         arr[i] = arr[j];
-//         arr[j] = temp;
-//         //std::cout<<"unsorted at ~"<<(i + 1)<<"~ : "<<arr[i]<<std::endl;
-//     }
-//     bool arraySorted = true;
-//     auto sTime = std::chrono::high_resolution_clock::now();
-//     MergeSort<int> merge;
-//     arr = merge.Sort(arr);
-//     auto eTime = std::chrono::high_resolution_clock::now();
-//     //std::cout<<"Merge Sort: "<<std::chrono::duration_cast<std::chrono::nanoseconds>(eTime - sTime).count()<<" nanoseconds"<<std::endl;
-//     for(int i = 0; i < arr.size(); i++){
-//         //std::cout<<arr[i]<<std::endl;
-//         if(arr[i] != arrSorted[i]) arraySorted = false;
-//     }
-//     REQUIRE(arraySorted == true);
-// }
+TEST_CASE("Merge Sort Can Sort Array"){
+    std::vector<int> arrSorted;
+    for(int i = 1; i <= amount; i++){
+        arrSorted.push_back(i);
+    }
+    std::vector<int> arr = arrSorted;
+    for(int i = arr.size() - 1; i >= 0; i--){
+        int j = rand() % (i + 1);
+        int temp = arr[i];
+        arr[i] = arr[j];
+        arr[j] = temp;
+        //std::cout<<"unsorted at ~"<<(i + 1)<<"~ : "<<arr[i]<<std::endl;
+    }
+    bool arraySorted = true;
+    auto sTime = std::chrono::high_resolution_clock::now();
+    MergeSort<int> merge;
+    arr = merge.Sort(arr);
+    auto eTime = std::chrono::high_resolution_clock::now();
+    //std::cout<<"Merge Sort: "<<std::chrono::duration_cast<std::chrono::nanoseconds>(eTime - sTime).count()<<" nanoseconds"<<std::endl;
+    for(int i = 0; i < arr.size(); i++){
+        //std::cout<<arr[i]<<std::endl;
+        if(arr[i] != arrSorted[i]) arraySorted = false;
+    }
+    REQUIRE(arraySorted == true);
+}
 // TEST_CASE("Merge Sort Can Handle 1 Item"){
 //     std::vector<int> arrSorted = {1};
 //     std::vector<int> arr = arrSorted;
@@ -635,7 +634,6 @@ TEST_CASE("Can find the exact isomorphic patern of a array of words"){
 
 // TEST_CASE("Merge Sort Can Sort Arrays of the same value"){
 //     std::vector<int> arrSorted;
-    
 //     for(int i = 1; i <= amount; i++){
 //         arrSorted.push_back(1);
 //     }
@@ -662,7 +660,6 @@ TEST_CASE("Can find the exact isomorphic patern of a array of words"){
 
 // TEST_CASE("Merge Sort Can Sort negitive Arrays"){
 //     std::vector<int> arrSorted;
-    
 //     for(int i = 1; i <= amount; i++){
 //         arrSorted.push_back(i - 100);
 //     }
@@ -695,7 +692,6 @@ TEST_CASE("Can find the exact isomorphic patern of a array of words"){
 
 // TEST_CASE("Quick Sort Can Sort Array"){
 //     std::vector<int> arrSorted;
-//     int amount = 10;
 //     for(int i = 1; i <= amount; i++){
 //         arrSorted.push_back(i);
 //     }
@@ -747,7 +743,6 @@ TEST_CASE("Can find the exact isomorphic patern of a array of words"){
 
 // TEST_CASE("Quick Sort Can Sort Arrays of the same value"){
 //     std::vector<int> arrSorted;
-//     
 //     for(int i = 1; i <= amount; i++){
 //         arrSorted.push_back(1);
 //     }
@@ -774,7 +769,6 @@ TEST_CASE("Can find the exact isomorphic patern of a array of words"){
 
 // TEST_CASE("Quick Sort Can Sort negitive Arrays"){
 //     std::vector<int> arrSorted;
-//     
 //     for(int i = 1; i <= amount; i++){
 //         arrSorted.push_back(i - 100);
 //     }
