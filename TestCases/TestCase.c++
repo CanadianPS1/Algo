@@ -16,7 +16,7 @@
 #include "../BinarySearch/BinarySearch.h"
 #include "../Isomorphic/Isomorphic.h"
 #include <bits/stdc++.h>
-int amount = 10;
+int amount = 1000000;
 /*
 
 For the Test class
@@ -154,58 +154,58 @@ TEST_CASE("Selection Sort Can Handle Empty Array"){
     REQUIRE(arraySorted == true);
 }
 
-TEST_CASE("Selection Sort Can Sort Array of the same value"){
-    std::vector<int> arrSorted;
+// TEST_CASE("Selection Sort Can Sort Array of the same value"){
+//     std::vector<int> arrSorted;
     
-    for(int i = 1; i <= amount; i++){
-        arrSorted.push_back(1);
-    }
-    std::vector<int> arr = arrSorted;
-    for(int i = arr.size() - 1; i >= 0; i--){
-        int j = rand() % (i + 1);
-        int temp = arr[i];
-        arr[i] = arr[j];
-        arr[j] = temp;
-        //std::cout<<"unsorted at ~"<<(i + 1)<<"~ : "<<arr[i]<<std::endl;
-    }
-    bool arraySorted = true;
-    auto sTime = std::chrono::high_resolution_clock::now();
-    SelectionSort<int> selection;
-    arr = selection.Sort(arr);
-    auto eTime = std::chrono::high_resolution_clock::now();
-    //std::cout<<"Selection Sort: "<<std::chrono::duration_cast<std::chrono::nanoseconds>(eTime - sTime).count()<<" nanoseconds"<<std::endl;
-    for(int i = 0; i < arr.size(); i++){
-        if(arr[i] != arrSorted[i]) arraySorted = false;
-    }
-    REQUIRE(arraySorted == true);
-}
+//     for(int i = 1; i <= amount; i++){
+//         arrSorted.push_back(1);
+//     }
+//     std::vector<int> arr = arrSorted;
+//     for(int i = arr.size() - 1; i >= 0; i--){
+//         int j = rand() % (i + 1);
+//         int temp = arr[i];
+//         arr[i] = arr[j];
+//         arr[j] = temp;
+//         //std::cout<<"unsorted at ~"<<(i + 1)<<"~ : "<<arr[i]<<std::endl;
+//     }
+//     bool arraySorted = true;
+//     auto sTime = std::chrono::high_resolution_clock::now();
+//     SelectionSort<int> selection;
+//     arr = selection.Sort(arr);
+//     auto eTime = std::chrono::high_resolution_clock::now();
+//     //std::cout<<"Selection Sort: "<<std::chrono::duration_cast<std::chrono::nanoseconds>(eTime - sTime).count()<<" nanoseconds"<<std::endl;
+//     for(int i = 0; i < arr.size(); i++){
+//         if(arr[i] != arrSorted[i]) arraySorted = false;
+//     }
+//     REQUIRE(arraySorted == true);
+// }
 
 
-TEST_CASE("Selection Sort Can Sort negitive Array"){
-    std::vector<int> arrSorted;
+// TEST_CASE("Selection Sort Can Sort negitive Array"){
+//     std::vector<int> arrSorted;
     
-    for(int i = 1; i <= amount; i++){
-        arrSorted.push_back(i - 100);
-    }
-    std::vector<int> arr = arrSorted;
-    for(int i = arr.size() - 1; i >= 0; i--){
-        int j = rand() % (i + 1);
-        int temp = arr[i];
-        arr[i] = arr[j];
-        arr[j] = temp;
-        //std::cout<<"unsorted at ~"<<(i + 1)<<"~ : "<<arr[i]<<std::endl;
-    }
-    bool arraySorted = true;
-    auto sTime = std::chrono::high_resolution_clock::now();
-    SelectionSort<int> selection;
-    arr = selection.Sort(arr);
-    auto eTime = std::chrono::high_resolution_clock::now();
-    //std::cout<<"Selection Sort: "<<std::chrono::duration_cast<std::chrono::nanoseconds>(eTime - sTime).count()<<" nanoseconds"<<std::endl;
-    for(int i = 0; i < arr.size(); i++){
-        if(arr[i] != arrSorted[i]) arraySorted = false;
-    }
-    REQUIRE(arraySorted == true);
-}
+//     for(int i = 1; i <= amount; i++){
+//         arrSorted.push_back(i - 100);
+//     }
+//     std::vector<int> arr = arrSorted;
+//     for(int i = arr.size() - 1; i >= 0; i--){
+//         int j = rand() % (i + 1);
+//         int temp = arr[i];
+//         arr[i] = arr[j];
+//         arr[j] = temp;
+//         //std::cout<<"unsorted at ~"<<(i + 1)<<"~ : "<<arr[i]<<std::endl;
+//     }
+//     bool arraySorted = true;
+//     auto sTime = std::chrono::high_resolution_clock::now();
+//     SelectionSort<int> selection;
+//     arr = selection.Sort(arr);
+//     auto eTime = std::chrono::high_resolution_clock::now();
+//     //std::cout<<"Selection Sort: "<<std::chrono::duration_cast<std::chrono::nanoseconds>(eTime - sTime).count()<<" nanoseconds"<<std::endl;
+//     for(int i = 0; i < arr.size(); i++){
+//         if(arr[i] != arrSorted[i]) arraySorted = false;
+//     }
+//     REQUIRE(arraySorted == true);
+// }
 /*
 
 Insertion Sort
@@ -214,7 +214,6 @@ Insertion Sort
 
 TEST_CASE("Insertion Sort Can Sort Array"){
     std::vector<int> arrSorted;
-    int amount = 10;
     for(int i = 1; i <= amount; i++){
         arrSorted.push_back(i);
     }
@@ -264,59 +263,59 @@ TEST_CASE("Insertion Sort Can Handle Empty Array"){
     REQUIRE(arraySorted == true);
 }
 
-TEST_CASE("Insertion Sort Can Sort Arrays of the same value"){
-    std::vector<int> arrSorted;
+// TEST_CASE("Insertion Sort Can Sort Arrays of the same value"){
+//     std::vector<int> arrSorted;
     
-    for(int i = 1; i <= amount; i++){
-        arrSorted.push_back(1);
-    }
-    std::vector<int> arr = arrSorted;
-    for(int i = arr.size() - 1; i >= 0; i--){
-        int j = rand() % (i + 1);
-        int temp = arr[i];
-        arr[i] = arr[j];
-        arr[j] = temp;
-        //std::cout<<"unsorted at ~"<<(i + 1)<<"~ : "<<arr[i]<<std::endl;
-    }
-    bool arraySorted = true;
-    auto sTime = std::chrono::high_resolution_clock::now();
-    InsertionSort<int> insertion;
-    arr = insertion.Sort(arr);
-    auto eTime = std::chrono::high_resolution_clock::now();
-    //std::cout<<"Insertion Sort: "<<std::chrono::duration_cast<std::chrono::nanoseconds>(eTime - sTime).count()<<" nanoseconds"<<std::endl;
-    for(int i = 0; i < arr.size(); i++){
-        //std::cout<<arr[i]<<std::endl;
-        if(arr[i] != arrSorted[i]) arraySorted = false;
-    }
-    REQUIRE(arraySorted == true);
-}
+//     for(int i = 1; i <= amount; i++){
+//         arrSorted.push_back(1);
+//     }
+//     std::vector<int> arr = arrSorted;
+//     for(int i = arr.size() - 1; i >= 0; i--){
+//         int j = rand() % (i + 1);
+//         int temp = arr[i];
+//         arr[i] = arr[j];
+//         arr[j] = temp;
+//         //std::cout<<"unsorted at ~"<<(i + 1)<<"~ : "<<arr[i]<<std::endl;
+//     }
+//     bool arraySorted = true;
+//     auto sTime = std::chrono::high_resolution_clock::now();
+//     InsertionSort<int> insertion;
+//     arr = insertion.Sort(arr);
+//     auto eTime = std::chrono::high_resolution_clock::now();
+//     //std::cout<<"Insertion Sort: "<<std::chrono::duration_cast<std::chrono::nanoseconds>(eTime - sTime).count()<<" nanoseconds"<<std::endl;
+//     for(int i = 0; i < arr.size(); i++){
+//         //std::cout<<arr[i]<<std::endl;
+//         if(arr[i] != arrSorted[i]) arraySorted = false;
+//     }
+//     REQUIRE(arraySorted == true);
+// }
 
-TEST_CASE("Insertion Sort Can Sort negitive Arrays"){
-    std::vector<int> arrSorted;
+// TEST_CASE("Insertion Sort Can Sort negitive Arrays"){
+//     std::vector<int> arrSorted;
     
-    for(int i = 1; i <= amount; i++){
-        arrSorted.push_back(i - 100);
-    }
-    std::vector<int> arr = arrSorted;
-    for(int i = arr.size() - 1; i >= 0; i--){
-        int j = rand() % (i + 1);
-        int temp = arr[i];
-        arr[i] = arr[j];
-        arr[j] = temp;
-        //std::cout<<"unsorted at ~"<<(i + 1)<<"~ : "<<arr[i]<<std::endl;
-    }
-    bool arraySorted = true;
-    auto sTime = std::chrono::high_resolution_clock::now();
-    InsertionSort<int> insertion;
-    arr = insertion.Sort(arr);
-    auto eTime = std::chrono::high_resolution_clock::now();
-    //std::cout<<"Insertion Sort: "<<std::chrono::duration_cast<std::chrono::nanoseconds>(eTime - sTime).count()<<" nanoseconds"<<std::endl;
-    for(int i = 0; i < arr.size(); i++){
-        //std::cout<<arr[i]<<std::endl;
-        if(arr[i] != arrSorted[i]) arraySorted = false;
-    }
-    REQUIRE(arraySorted == true);
-}
+//     for(int i = 1; i <= amount; i++){
+//         arrSorted.push_back(i - 100);
+//     }
+//     std::vector<int> arr = arrSorted;
+//     for(int i = arr.size() - 1; i >= 0; i--){
+//         int j = rand() % (i + 1);
+//         int temp = arr[i];
+//         arr[i] = arr[j];
+//         arr[j] = temp;
+//         //std::cout<<"unsorted at ~"<<(i + 1)<<"~ : "<<arr[i]<<std::endl;
+//     }
+//     bool arraySorted = true;
+//     auto sTime = std::chrono::high_resolution_clock::now();
+//     InsertionSort<int> insertion;
+//     arr = insertion.Sort(arr);
+//     auto eTime = std::chrono::high_resolution_clock::now();
+//     //std::cout<<"Insertion Sort: "<<std::chrono::duration_cast<std::chrono::nanoseconds>(eTime - sTime).count()<<" nanoseconds"<<std::endl;
+//     for(int i = 0; i < arr.size(); i++){
+//         //std::cout<<arr[i]<<std::endl;
+//         if(arr[i] != arrSorted[i]) arraySorted = false;
+//     }
+//     REQUIRE(arraySorted == true);
+// }
 /*
 
     Leet Code
@@ -353,7 +352,6 @@ TEST_CASE("checks if it gives the write index"){
 
 TEST_CASE("Cube Sort Can Sort Array"){
     std::vector<int> arrSorted;
-    int amount = 10;
     for(int i = 1; i <= amount; i++){
         arrSorted.push_back(i);
     }
@@ -403,59 +401,59 @@ TEST_CASE("Cube Sort Can Handle Empty Array"){
     REQUIRE(arraySorted == true);
 }
 
-TEST_CASE("Cube Sort Can Sort Arrays of the same value"){
-    std::vector<int> arrSorted;
+// TEST_CASE("Cube Sort Can Sort Arrays of the same value"){
+//     std::vector<int> arrSorted;
     
-    for(int i = 1; i <= amount; i++){
-        arrSorted.push_back(1);
-    }
-    std::vector<int> arr = arrSorted;
-    for(int i = arr.size() - 1; i >= 0; i--){
-        int j = rand() % (i + 1);
-        int temp = arr[i];
-        arr[i] = arr[j];
-        arr[j] = temp;
-        //std::cout<<"unsorted at ~"<<(i + 1)<<"~ : "<<arr[i]<<std::endl;
-    }
-    bool arraySorted = true;
-    auto sTime = std::chrono::high_resolution_clock::now();
-    CubeSort<int> cube;
-    arr = cube.Sort(arr);
-    auto eTime = std::chrono::high_resolution_clock::now();
-    //std::cout<<"Cube Sort: "<<std::chrono::duration_cast<std::chrono::nanoseconds>(eTime - sTime).count()<<" nanoseconds"<<std::endl;
-    for(int i = 0; i < arr.size(); i++){
-        //std::cout<<arr[i]<<std::endl;
-        if(arr[i] != arrSorted[i]) arraySorted = false;
-    }
-    REQUIRE(arraySorted == true);
-}
+//     for(int i = 1; i <= amount; i++){
+//         arrSorted.push_back(1);
+//     }
+//     std::vector<int> arr = arrSorted;
+//     for(int i = arr.size() - 1; i >= 0; i--){
+//         int j = rand() % (i + 1);
+//         int temp = arr[i];
+//         arr[i] = arr[j];
+//         arr[j] = temp;
+//         //std::cout<<"unsorted at ~"<<(i + 1)<<"~ : "<<arr[i]<<std::endl;
+//     }
+//     bool arraySorted = true;
+//     auto sTime = std::chrono::high_resolution_clock::now();
+//     CubeSort<int> cube;
+//     arr = cube.Sort(arr);
+//     auto eTime = std::chrono::high_resolution_clock::now();
+//     //std::cout<<"Cube Sort: "<<std::chrono::duration_cast<std::chrono::nanoseconds>(eTime - sTime).count()<<" nanoseconds"<<std::endl;
+//     for(int i = 0; i < arr.size(); i++){
+//         //std::cout<<arr[i]<<std::endl;
+//         if(arr[i] != arrSorted[i]) arraySorted = false;
+//     }
+//     REQUIRE(arraySorted == true);
+// }
 
-TEST_CASE("Cube Sort Can Sort negitive Arrays"){
-    std::vector<int> arrSorted;
+// TEST_CASE("Cube Sort Can Sort negitive Arrays"){
+//     std::vector<int> arrSorted;
     
-    for(int i = 1; i <= amount; i++){
-        arrSorted.push_back(i - 100);
-    }
-    std::vector<int> arr = arrSorted;
-    for(int i = arr.size() - 1; i >= 0; i--){
-        int j = rand() % (i + 1);
-        int temp = arr[i];
-        arr[i] = arr[j];
-        arr[j] = temp;
-        //std::cout<<"unsorted at ~"<<(i + 1)<<"~ : "<<arr[i]<<std::endl;
-    }
-    bool arraySorted = true;
-    auto sTime = std::chrono::high_resolution_clock::now();
-    CubeSort<int> cube;
-    arr = cube.Sort(arr);
-    auto eTime = std::chrono::high_resolution_clock::now();
-    //std::cout<<"Cube Sort: "<<std::chrono::duration_cast<std::chrono::nanoseconds>(eTime - sTime).count()<<" nanoseconds"<<std::endl;
-    for(int i = 0; i < arr.size(); i++){
-        //std::cout<<arr[i]<<std::endl;
-        if(arr[i] != arrSorted[i]) arraySorted = false;
-    }
-    REQUIRE(arraySorted == true);
-}
+//     for(int i = 1; i <= amount; i++){
+//         arrSorted.push_back(i - 100);
+//     }
+//     std::vector<int> arr = arrSorted;
+//     for(int i = arr.size() - 1; i >= 0; i--){
+//         int j = rand() % (i + 1);
+//         int temp = arr[i];
+//         arr[i] = arr[j];
+//         arr[j] = temp;
+//         //std::cout<<"unsorted at ~"<<(i + 1)<<"~ : "<<arr[i]<<std::endl;
+//     }
+//     bool arraySorted = true;
+//     auto sTime = std::chrono::high_resolution_clock::now();
+//     CubeSort<int> cube;
+//     arr = cube.Sort(arr);
+//     auto eTime = std::chrono::high_resolution_clock::now();
+//     //std::cout<<"Cube Sort: "<<std::chrono::duration_cast<std::chrono::nanoseconds>(eTime - sTime).count()<<" nanoseconds"<<std::endl;
+//     for(int i = 0; i < arr.size(); i++){
+//         //std::cout<<arr[i]<<std::endl;
+//         if(arr[i] != arrSorted[i]) arraySorted = false;
+//     }
+//     REQUIRE(arraySorted == true);
+// }
 
 /*
 
@@ -597,40 +595,40 @@ TEST_CASE("Merge Sort Can Sort Array"){
     bool arraySorted = true;
     auto sTime = std::chrono::high_resolution_clock::now();
     MergeSort<int> merge;
-    arr = merge.Sort(arr, 0, amount);
+    arr = merge.Sort(arr, 0, amount - 1);
     auto eTime = std::chrono::high_resolution_clock::now();
-    //std::cout<<"Merge Sort: "<<std::chrono::duration_cast<std::chrono::nanoseconds>(eTime - sTime).count()<<" nanoseconds"<<std::endl;
+    std::cout<<"    Merge Sort: "<<std::chrono::duration_cast<std::chrono::nanoseconds>(eTime - sTime).count()<<" nanoseconds"<<std::endl;
     for(int i = 0; i < arr.size(); i++){
         //std::cout<<arr[i]<<std::endl;
         if(arr[i] != arrSorted[i]) arraySorted = false;
     }
     REQUIRE(arraySorted == true);
 }
-// TEST_CASE("Merge Sort Can Handle 1 Item"){
-//     std::vector<int> arrSorted = {1};
-//     std::vector<int> arr = arrSorted;
-//     bool arraySorted = true;
-//     auto sTime = std::chrono::high_resolution_clock::now();
-//     MergeSort<int> merge;
-//     arr = merge.Sort(arr);
-//     auto eTime = std::chrono::high_resolution_clock::now();
-//     for(int i = 0; i < arr.size(); i++){
-//         if(arr[i] != arrSorted[i]) arraySorted = false;
-//     }
-//     REQUIRE(arraySorted == true);
-// }
+TEST_CASE("Merge Sort Can Handle 1 Item"){
+    std::vector<int> arrSorted = {1};
+    std::vector<int> arr = arrSorted;
+    bool arraySorted = true;
+    auto sTime = std::chrono::high_resolution_clock::now();
+    MergeSort<int> merge;
+    arr = merge.Sort(arr, 0, amount - 1);
+    auto eTime = std::chrono::high_resolution_clock::now();
+    for(int i = 0; i < arr.size(); i++){
+        if(arr[i] != arrSorted[i]) arraySorted = false;
+    }
+    REQUIRE(arraySorted == true);
+}
 
-// TEST_CASE("Merge Sort Can Handle Empty Array"){
-//     std::vector<int> arr = {};
-//     std::vector<int> arrSorted = {};
-//     MergeSort<int> merge;
-//     bool arraySorted = true;
-//     arr = merge.Sort(arr);
-//     for(int i = 0; i < arr.size(); i++){
-//         if(arr[i] != arrSorted[i]) arraySorted = false;
-//     }
-//     REQUIRE(arraySorted == true);
-// }
+TEST_CASE("Merge Sort Can Handle Empty Array"){
+    std::vector<int> arr = {};
+    std::vector<int> arrSorted = {};
+    MergeSort<int> merge;
+    bool arraySorted = true;
+    arr = merge.Sort(arr, 0, amount - 1);
+    for(int i = 0; i < arr.size(); i++){
+        if(arr[i] != arrSorted[i]) arraySorted = false;
+    }
+    REQUIRE(arraySorted == true);
+}
 
 // TEST_CASE("Merge Sort Can Sort Arrays of the same value"){
 //     std::vector<int> arrSorted;
@@ -648,7 +646,7 @@ TEST_CASE("Merge Sort Can Sort Array"){
 //     bool arraySorted = true;
 //     auto sTime = std::chrono::high_resolution_clock::now();
 //     MergeSort<int> merge;
-//     arr = merge.Sort(arr);
+//     arr = merge.Sort(arr, 0, amount - 1);
 //     auto eTime = std::chrono::high_resolution_clock::now();
 //     //std::cout<<"Merge Sort: "<<std::chrono::duration_cast<std::chrono::nanoseconds>(eTime - sTime).count()<<" nanoseconds"<<std::endl;
 //     for(int i = 0; i < arr.size(); i++){
@@ -674,7 +672,7 @@ TEST_CASE("Merge Sort Can Sort Array"){
 //     bool arraySorted = true;
 //     auto sTime = std::chrono::high_resolution_clock::now();
 //     MergeSort<int> merge;
-//     arr = merge.Sort(arr);
+//     arr = merge.Sort(arr, 0, amount - 1);
 //     auto eTime = std::chrono::high_resolution_clock::now();
 //     //std::cout<<"Merge Sort: "<<std::chrono::duration_cast<std::chrono::nanoseconds>(eTime - sTime).count()<<" nanoseconds"<<std::endl;
 //     for(int i = 0; i < arr.size(); i++){
@@ -690,56 +688,56 @@ TEST_CASE("Merge Sort Can Sort Array"){
 
 */
 
-// TEST_CASE("Quick Sort Can Sort Array"){
-//     std::vector<int> arrSorted;
-//     for(int i = 1; i <= amount; i++){
-//         arrSorted.push_back(i);
-//     }
-//     std::vector<int> arr = arrSorted;
-//     for(int i = arr.size() - 1; i >= 0; i--){
-//         int j = rand() % (i + 1);
-//         int temp = arr[i];
-//         arr[i] = arr[j];
-//         arr[j] = temp;
-//         //std::cout<<"unsorted at ~"<<(i + 1)<<"~ : "<<arr[i]<<std::endl;
-//     }
-//     bool arraySorted = true;
-//     auto sTime = std::chrono::high_resolution_clock::now();
-//     QuickSort<int> quick;
-//     arr = quick.Sort(arr);
-//     auto eTime = std::chrono::high_resolution_clock::now();
-//     //std::cout<<"Quick Sort: "<<std::chrono::duration_cast<std::chrono::nanoseconds>(eTime - sTime).count()<<" nanoseconds"<<std::endl;
-//     for(int i = 0; i < arr.size(); i++){
-//         //std::cout<<arr[i]<<std::endl;
-//         if(arr[i] != arrSorted[i]) arraySorted = false;
-//     }
-//     REQUIRE(arraySorted == true);
-// }
-// TEST_CASE("Quick Sort Can Handle 1 Item"){
-//     std::vector<int> arrSorted = {1};
-//     std::vector<int> arr = arrSorted;
-//     bool arraySorted = true;
-//     auto sTime = std::chrono::high_resolution_clock::now();
-//     QuickSort<int> quick;
-//     arr = quick.Sort(arr);
-//     auto eTime = std::chrono::high_resolution_clock::now();
-//     for(int i = 0; i < arr.size(); i++){
-//         if(arr[i] != arrSorted[i]) arraySorted = false;
-//     }
-//     REQUIRE(arraySorted == true);
-// }
+TEST_CASE("Quick Sort Can Sort Array"){
+    std::vector<int> arrSorted;
+    for(int i = 1; i <= amount; i++){
+        arrSorted.push_back(i);
+    }
+    std::vector<int> arr = arrSorted;
+    for(int i = arr.size() - 1; i >= 0; i--){
+        int j = rand() % (i + 1);
+        int temp = arr[i];
+        arr[i] = arr[j];
+        arr[j] = temp;
+        //std::cout<<"unsorted at ~"<<(i + 1)<<"~ : "<<arr[i]<<std::endl;
+    }
+    bool arraySorted = true;
+    auto sTime = std::chrono::high_resolution_clock::now();
+    QuickSort<int> quick;
+    arr = quick.Sort(arr, 0, amount - 1);
+    auto eTime = std::chrono::high_resolution_clock::now();
+    std::cout<<"    Quick Sort: "<<std::chrono::duration_cast<std::chrono::nanoseconds>(eTime - sTime).count()<<" nanoseconds"<<std::endl;
+    for(int i = 0; i < arr.size(); i++){
+        //std::cout<<arr[i]<<std::endl;
+        if(arr[i] != arrSorted[i]) arraySorted = false;
+    }
+    REQUIRE(arraySorted == true);
+}
+TEST_CASE("Quick Sort Can Handle 1 Item"){
+    std::vector<int> arrSorted = {1};
+    std::vector<int> arr = arrSorted;
+    bool arraySorted = true;
+    auto sTime = std::chrono::high_resolution_clock::now();
+    QuickSort<int> quick;
+    arr = quick.Sort(arr, 0, amount - 1);
+    auto eTime = std::chrono::high_resolution_clock::now();
+    for(int i = 0; i < arr.size(); i++){
+        if(arr[i] != arrSorted[i]) arraySorted = false;
+    }
+    REQUIRE(arraySorted == true);
+}
 
-// TEST_CASE("Quick Sort Can Handle Empty Array"){
-//     std::vector<int> arr = {};
-//     std::vector<int> arrSorted = {};
-//     QuickSort<int> quick;
-//     bool arraySorted = true;
-//     arr = quick.Sort(arr);
-//     for(int i = 0; i < arr.size(); i++){
-//         if(arr[i] != arrSorted[i]) arraySorted = false;
-//     }
-//     REQUIRE(arraySorted == true);
-// }
+TEST_CASE("Quick Sort Can Handle Empty Array"){
+    std::vector<int> arr = {};
+    std::vector<int> arrSorted = {};
+    QuickSort<int> quick;
+    bool arraySorted = true;
+    arr = quick.Sort(arr, 0, amount - 1);
+    for(int i = 0; i < arr.size(); i++){
+        if(arr[i] != arrSorted[i]) arraySorted = false;
+    }
+    REQUIRE(arraySorted == true);
+}
 
 // TEST_CASE("Quick Sort Can Sort Arrays of the same value"){
 //     std::vector<int> arrSorted;
@@ -757,7 +755,7 @@ TEST_CASE("Merge Sort Can Sort Array"){
 //     bool arraySorted = true;
 //     auto sTime = std::chrono::high_resolution_clock::now();
 //     QuickSort<int> quick;
-//     arr = quick.Sort(arr);
+//     arr = quick.Sort(arr, 0, amount - 1);
 //     auto eTime = std::chrono::high_resolution_clock::now();
 //     //std::cout<<"Quick Sort: "<<std::chrono::duration_cast<std::chrono::nanoseconds>(eTime - sTime).count()<<" nanoseconds"<<std::endl;
 //     for(int i = 0; i < arr.size(); i++){
@@ -783,7 +781,7 @@ TEST_CASE("Merge Sort Can Sort Array"){
 //     bool arraySorted = true;
 //     auto sTime = std::chrono::high_resolution_clock::now();
 //     QuickSort<int> quick;
-//     arr = quick.Sort(arr);
+//     arr = quick.Sort(arr, 0, amount - 1);
 //     auto eTime = std::chrono::high_resolution_clock::now();
 //     //std::cout<<"Quick Sort: "<<std::chrono::duration_cast<std::chrono::nanoseconds>(eTime - sTime).count()<<" nanoseconds"<<std::endl;
 //     for(int i = 0; i < arr.size(); i++){

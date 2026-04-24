@@ -8,44 +8,6 @@ class InsertionSort{
     std::vector<T> Sort(std::vector<T> arr){
         int size = arr.size();
         /*
-            i ripped this sort off the dome but it doesnt do the insertion
-            but i really like what i came up with so ima keep it commented out
-            but this sort is only good on large amounts of data
-
-            pretty much with the power of the unorderd map if i know the smallest value and the largest value i can
-            put everything into a unordered map with the key and the value equal to each spot of the arr (or what ever)
-            then i can just loop through putting each number in the right sorted spot in the first iteration, but if i know
-            the list of numbers doesnt have any gaps ie (1,2,3) and not (1,3,4) then i could just loop through it once without knowing the max value
-
-            hashmap
-            make each key the value
-            for loop then grab each key and make the value at that spot of a returned array
-
-            OC = O(n)
-            SC = O(n)
-        */
-
-                    // std::unordered_map<int, int> evil;
-                    // int minValue = 0;
-                    // int maxValue = 0;
-                    // for(int i = 0; i < size; i++){
-                    //     evil.insert({arr[i], arr[i]});
-                    //     if(arr[i] < minValue) minValue = arr[i];
-                    //     if(arr[i] > maxValue) maxValue = arr[i];
-                    //     //std::cout<<"unsorted : "<<arr[i]<<std::endl;
-                    // }
-                    // //std::cout<<"max: "<<maxValue<<"\nmin: "<<minValue<<std::endl;
-                    // arr.clear();
-                    // for(int i = minValue; i <= maxValue; i++){
-                    //     //std::cout<<"i : "<<i<<std::endl;
-                    //     if(evil.contains(i)){
-                    //         arr.push_back(evil.at(i));
-                    //         //std::cout<<evil.at(i)<<std::endl;
-                    //     }
-                    // }
-                    // return arr;
-
-        /*
             check for if the data scructure has elements
                 declare a temp var on the heap and a incrementing int on the stack
                 loop through each element in the array
