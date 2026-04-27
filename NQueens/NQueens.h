@@ -18,14 +18,42 @@
             Finding the answers
         
         Global Vector, solutions type of a struct packed array
+        Global Array size n type packed int 5 bits
         void Method(int amount of solutions, int y)
             array solution size n type packed int 5 bits
             for i; i < n; i++
                 if IsSafeHere(i, y)
                     pack the int into 5 bits
-
+                    array at i = packed int
                     Method(n, y+ 1)
-                else return
+                else
+                    Array at i = null
+                    return
         bool IsSafeHere(int x, int y)
-
+            for each array
+                if array[i] = x or y 
+                    return false
+                else if
+                else if
+                else return true    
+        GetAllSolutions return solutions
+        GetAmountOfSolutions return Array
 */
+#include <vector>
+#include <array>
+class NQueens{
+    public:
+    struct PackedVector{
+        std::vector<int> vector;
+    };
+
+    PackedVector vector;
+    void Sort(int n, int y){
+
+    }
+    bool IsSafeHere(int x, int y){
+        return true;
+    }
+    PackedVector GetAllSolutions(){return vector;}
+    int GetAmountOfSolutions(){return -1;}
+};
