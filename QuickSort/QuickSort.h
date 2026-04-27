@@ -22,7 +22,7 @@
             recerse through with l + 2 and the end (going to the right)
         
          Time O(n log n)
-        Space O(1)
+        Space O(n log n)
 */
 template <typename T>
 class QuickSort{
