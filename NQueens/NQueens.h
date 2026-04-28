@@ -47,7 +47,7 @@ class NQueens{
         std::vector<int> vector;
     };
 
-    PackedVector vector;
+    PackedVector packedVector;
     void Sort(int n, int y){
         if(y >= n) return;
         for(int i = 0; i < n; i++){
@@ -62,6 +62,6 @@ class NQueens{
     bool IsSafeHere(int x, int y){
         return true;
     }
-    PackedVector GetAllSolutions(){return vector;}
-    int GetAmountOfSolutions(){return -1;}
+    std::vector<int> GetAllSolutions(){return packedVector.vector;}
+    int GetAmountOfSolutions(){return packedVector.vector.size();}
 };
