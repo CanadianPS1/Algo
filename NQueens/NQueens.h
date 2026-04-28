@@ -49,6 +49,7 @@ class NQueens{
 
     PackedVector vector;
     void Sort(int n, int y){
+        if(y >= n) return;
         for(int i = 0; i < n; i++){
             if(IsSafeHere(i,y)){
                 //TODO make it
