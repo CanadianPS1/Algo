@@ -49,7 +49,14 @@ class NQueens{
 
     PackedVector vector;
     void Sort(int n, int y){
-
+        for(int i = 0; i < n; i++){
+            if(IsSafeHere(i,y)){
+                //TODO make it
+            }else{
+                //TODO make the array stuff
+                return;
+            }
+        }
     }
     bool IsSafeHere(int x, int y){
         return true;
