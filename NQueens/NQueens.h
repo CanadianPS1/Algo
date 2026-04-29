@@ -68,6 +68,6 @@ class NQueens{
         return true;
     }
     std::vector<std::vector<uint8_t>> GetAllSolutions(){return solutions;}
-    std::vector<uint8_t> GetFirstSolution(){return solutions[0];}
+    std::vector<uint8_t> GetNSolution(int n){return solutions[n];}
     int GetAmountOfSolutions(){return solutions.size();}
 };

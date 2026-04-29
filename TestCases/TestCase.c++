@@ -818,7 +818,7 @@ TEST_CASE("N Queens finds the correct first solution for 4 queens"){
     nqueen.FindQueen(amountOfQueens, 0, solutions);
     auto eTime = std::chrono::high_resolution_clock::now();
     //std::cout<<"N Queens 4: "<<std::chrono::duration_cast<std::chrono::seconds>(eTime - sTime).count()<<" seconds"<<std::endl;
-    std::vector<uint8_t> answer = nqueen.GetFirstSolution();
+    std::vector<uint8_t> answer = nqueen.GetNSolution(0);
     //for(int i = 0; i < answer.size(); i++) std::cout<<answer[i]<<std::endl;
     REQUIRE(answer == solutions);
 }
