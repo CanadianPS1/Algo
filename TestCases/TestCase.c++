@@ -4,7 +4,7 @@
 //#include <chrono>
 #include <algorithm>
 #include <random>
-
+#include <cstdint>
 #include "../Testing/Test.h"
 #include "../BubbleSort/BubbleSort.h"
 #include "../SelectionSort/SelectionSort.h"
@@ -801,7 +801,7 @@ TEST_CASE("Quick Sort Can Sort negitive Arrays"){
 TEST_CASE("N Queens finds the correct amount of solutions for 4 queens"){
     int amountOfQueens = 4;
     NQueens nqueen;
-    std::vector<int> solutions = {0,0,0,0};
+    std::vector<uint8_t> solutions = {0,0,0,0};
     auto sTime = std::chrono::high_resolution_clock::now();
     nqueen.FindQueen(amountOfQueens, 0, solutions);
     auto eTime = std::chrono::high_resolution_clock::now();
@@ -813,20 +813,20 @@ TEST_CASE("N Queens finds the correct amount of solutions for 4 queens"){
 TEST_CASE("N Queens finds the correct first solution for 4 queens"){
     int amountOfQueens = 4;
     NQueens nqueen;
-    std::vector<int> solutions = {1, 3, 0, 2};
+    std::vector<uint8_t> solutions = {1, 3, 0, 2};
     auto sTime = std::chrono::high_resolution_clock::now();
     nqueen.FindQueen(amountOfQueens, 0, solutions);
     auto eTime = std::chrono::high_resolution_clock::now();
     //std::cout<<"N Queens 4: "<<std::chrono::duration_cast<std::chrono::seconds>(eTime - sTime).count()<<" seconds"<<std::endl;
-    std::vector<int> answer = nqueen.GetFirstSolution();
+    std::vector<uint8_t> answer = nqueen.GetFirstSolution();
     //for(int i = 0; i < answer.size(); i++) std::cout<<answer[i]<<std::endl;
     REQUIRE(answer == solutions);
 }
 
 TEST_CASE("N Queens finds the correct amount of solutions for N queens"){
-    int amountOfQueens = 16;
+    int amountOfQueens = 17;
     NQueens nqueen;
-    std::vector<int> solutions;
+    std::vector<uint8_t> solutions;
     for(int i = 0; i < amountOfQueens; i++) solutions.push_back(0);
     auto sTime = std::chrono::high_resolution_clock::now();
     nqueen.FindQueen(amountOfQueens, 0, solutions);

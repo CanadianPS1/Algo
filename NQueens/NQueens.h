@@ -45,27 +45,27 @@
 #include <cmath>
 class NQueens{
     public:
-    std::vector<std::vector<int>> solutions;
-    void FindQueen(int n, int y, std::vector<int> solution){
+    std::vector<std::vector<uint8_t>> solutions;
+    void FindQueen(uint8_t n, uint8_t y, std::vector<uint8_t> solution){
         if(y >= n){
             solutions.push_back(solution);
             return;
         }
-        for(int i = 0; i < n; i++){
+        for(uint8_t i = 0; i < n; i++){
             if(IsSafeHere(i, y, solution)){
                 solution[y] = i;
                 FindQueen(n, y + 1, solution);
             }else continue;
         }
     }
-    bool IsSafeHere(int x, int y, std::vector<int> solution){
-        for(int i = 0; i < y; i++){
+    bool IsSafeHere(uint8_t x, uint8_t y, std::vector<uint8_t> solution){
+        for(uint8_t i = 0; i < y; i++){
             if(solution[i] == x) return false;
             if(abs(i - y) == abs(solution[i] - x)) return false;
         }
         return true;
     }
-    std::vector<std::vector<int>> GetAllSolutions(){return solutions;}
-    std::vector<int> GetFirstSolution(){return solutions[0];}
+    std::vector<std::vector<uint8_t>> GetAllSolutions(){return solutions;}
+    std::vector<uint8_t> GetFirstSolution(){return solutions[0];}
     int GetAmountOfSolutions(){return solutions.size();}
 };
