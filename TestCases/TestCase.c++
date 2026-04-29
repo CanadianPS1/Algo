@@ -15,6 +15,7 @@
 #include "../LeetCode/LeetCode1.c++"
 #include "../BinarySearch/BinarySearch.h"
 #include "../Isomorphic/Isomorphic.h"
+#include "../NQueens/NQueens.h"
 #include <bits/stdc++.h>
 int amount = 100;
 /*
@@ -789,4 +790,48 @@ TEST_CASE("Quick Sort Can Sort negitive Arrays"){
         if(arr[i] != arrSorted[i]) arraySorted = false;
     }
     REQUIRE(arraySorted == true);
+}
+
+/*
+
+    N Queens
+
+*/
+
+TEST_CASE("N Queens finds the correct amount of solutions for 4 queens"){
+    int amountOfQueens = 4;
+    NQueens nqueen;
+    std::vector<int> solutions = {0,0,0,0};
+    auto sTime = std::chrono::high_resolution_clock::now();
+    nqueen.FindQueen(amountOfQueens, 0, solutions);
+    auto eTime = std::chrono::high_resolution_clock::now();
+    std::cout<<"    N Queens 4: "<<std::chrono::duration_cast<std::chrono::seconds>(eTime - sTime).count()<<" seconds"<<std::endl;
+    //std::cout<<"amount of queens found: "<<nqueen.GetAmountOfSolutions()<<"\n expected : 4"<<std::endl;
+    REQUIRE(nqueen.GetAmountOfSolutions() == 2);
+}
+
+TEST_CASE("N Queens finds the correct first solution for 4 queens"){
+    int amountOfQueens = 4;
+    NQueens nqueen;
+    std::vector<int> solutions = {1, 3, 0, 2};
+    auto sTime = std::chrono::high_resolution_clock::now();
+    nqueen.FindQueen(amountOfQueens, 0, solutions);
+    auto eTime = std::chrono::high_resolution_clock::now();
+    //std::cout<<"N Queens 4: "<<std::chrono::duration_cast<std::chrono::seconds>(eTime - sTime).count()<<" seconds"<<std::endl;
+    std::vector<int> answer = nqueen.GetFirstSolution();
+    //for(int i = 0; i < answer.size(); i++) std::cout<<answer[i]<<std::endl;
+    REQUIRE(answer == solutions);
+}
+
+TEST_CASE("N Queens finds the correct amount of solutions for N queens"){
+    int amountOfQueens = 16;
+    NQueens nqueen;
+    std::vector<int> solutions;
+    for(int i = 0; i < amountOfQueens; i++) solutions.push_back(0);
+    auto sTime = std::chrono::high_resolution_clock::now();
+    nqueen.FindQueen(amountOfQueens, 0, solutions);
+    auto eTime = std::chrono::high_resolution_clock::now();
+    std::cout<<"    N Queens "<<amountOfQueens<<" : "<<std::chrono::duration_cast<std::chrono::seconds>(eTime - sTime).count()<<" seconds"<<std::endl;
+    //std::cout<<"amount of queens found: "<<nqueen.GetAmountOfSolutions()<<"\n expected : 4"<<std::endl;
+    REQUIRE(nqueen.GetAmountOfSolutions() == 14772512);
 }

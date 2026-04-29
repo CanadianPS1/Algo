@@ -41,27 +41,31 @@
 */
 #include <vector>
 #include <array>
+#include <cstdint>
+#include <cmath>
 class NQueens{
     public:
-    struct PackedVector{
-        std::vector<int> vector;
-    };
-
-    PackedVector packedVector;
-    void Sort(int n, int y){
-        if(y >= n) return;
+    std::vector<std::vector<int>> solutions;
+    void FindQueen(int n, int y, std::vector<int> solution){
+        if(y >= n){
+            solutions.push_back(solution);
+            return;
+        }
         for(int i = 0; i < n; i++){
-            if(IsSafeHere(i,y)){
-                //TODO make it
-            }else{
-                //TODO make the array stuff
-                return;
-            }
+            if(IsSafeHere(i, y, solution)){
+                solution[y] = i;
+                FindQueen(n, y + 1, solution);
+            }else continue;
         }
     }
-    bool IsSafeHere(int x, int y){
+    bool IsSafeHere(int x, int y, std::vector<int> solution){
+        for(int i = 0; i < y; i++){
+            if(solution[i] == x) return false;
+            if(abs(i - y) == abs(solution[i] - x)) return false;
+        }
         return true;
     }
-    std::vector<int> GetAllSolutions(){return packedVector.vector;}
-    int GetAmountOfSolutions(){return packedVector.vector.size();}
+    std::vector<std::vector<int>> GetAllSolutions(){return solutions;}
+    std::vector<int> GetFirstSolution(){return solutions[0];}
+    int GetAmountOfSolutions(){return solutions.size();}
 };
