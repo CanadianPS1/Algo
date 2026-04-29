@@ -47,8 +47,9 @@
 #include <cmath>
 class NQueens{
     public:
-    std::vector<std::vector<uint8_t>> solutions;
-    void FindQueen(uint8_t n, uint8_t y, std::vector<uint8_t> solution){
+    std::vector<std::vector<uint8_t>> solutions = {};
+    void FindQueen(int n, uint8_t y, std::vector<uint8_t> solution){
+        if(n <= 0) return;
         if(y >= n){
             solutions.push_back(solution);
             return;

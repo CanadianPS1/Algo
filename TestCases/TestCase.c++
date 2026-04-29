@@ -823,6 +823,44 @@ TEST_CASE("N Queens finds the correct first solution for 4 queens"){
     REQUIRE(answer == solutions);
 }
 
+TEST_CASE("N Queens finds the correct second solution for 4 queens"){
+    int amountOfQueens = 4;
+    NQueens nqueen;
+    std::vector<uint8_t> solutions = {2, 0, 3 ,1};
+    auto sTime = std::chrono::high_resolution_clock::now();
+    nqueen.FindQueen(amountOfQueens, 0, solutions);
+    auto eTime = std::chrono::high_resolution_clock::now();
+    //std::cout<<"N Queens 4: "<<std::chrono::duration_cast<std::chrono::seconds>(eTime - sTime).count()<<" seconds"<<std::endl;
+    std::vector<uint8_t> answer = nqueen.GetNSolution(1);
+    //for(int i = 0; i < answer.size(); i++) std::cout<<answer[i]<<std::endl;
+    REQUIRE(answer == solutions);
+}
+
+TEST_CASE("N Queens finds the correct amount of solutions for 0 queens"){
+    int amountOfQueens = 0;
+    NQueens nqueen;
+    std::vector<uint8_t> solutions = {};
+    auto sTime = std::chrono::high_resolution_clock::now();
+    nqueen.FindQueen(amountOfQueens, 0, solutions);
+    auto eTime = std::chrono::high_resolution_clock::now();
+    std::cout<<"    N Queens 4: "<<std::chrono::duration_cast<std::chrono::seconds>(eTime - sTime).count()<<" seconds"<<std::endl;
+    //std::cout<<"amount of queens found: "<<nqueen.GetAmountOfSolutions()<<"\n expected : 4"<<std::endl;
+    REQUIRE(nqueen.GetAmountOfSolutions() == 0);
+}
+
+TEST_CASE("N Queens finds the correct amount of solutions for -1 queens"){
+    int amountOfQueens = -1;
+    NQueens nqueen;
+    std::vector<uint8_t> solutions = {};
+    auto sTime = std::chrono::high_resolution_clock::now();
+    nqueen.FindQueen(amountOfQueens, 0, solutions);
+    auto eTime = std::chrono::high_resolution_clock::now();
+    std::cout<<"    N Queens 4: "<<std::chrono::duration_cast<std::chrono::seconds>(eTime - sTime).count()<<" seconds"<<std::endl;
+    std::cout<<"amount of queens found: "<<nqueen.GetAmountOfSolutions()<<"\n expected : 4"<<std::endl;
+    REQUIRE(nqueen.GetAmountOfSolutions() == 0);
+}
+
+
 // TEST_CASE("N Queens finds the correct amount of solutions for N queens"){
 //     int amountOfQueens = 17;
 //     NQueens nqueen;
