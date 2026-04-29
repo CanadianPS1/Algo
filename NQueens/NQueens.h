@@ -38,9 +38,11 @@
                 else return true    
         GetAllSolutions return solutions
         GetAmountOfSolutions return Array
+
+        Time : O(n factorial)
+        Size : O(n factorial)
 */
 #include <vector>
-#include <array>
 #include <cstdint>
 #include <cmath>
 class NQueens{

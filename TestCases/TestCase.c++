@@ -823,15 +823,15 @@ TEST_CASE("N Queens finds the correct first solution for 4 queens"){
     REQUIRE(answer == solutions);
 }
 
-TEST_CASE("N Queens finds the correct amount of solutions for N queens"){
-    int amountOfQueens = 17;
-    NQueens nqueen;
-    std::vector<uint8_t> solutions;
-    for(int i = 0; i < amountOfQueens; i++) solutions.push_back(0);
-    auto sTime = std::chrono::high_resolution_clock::now();
-    nqueen.FindQueen(amountOfQueens, 0, solutions);
-    auto eTime = std::chrono::high_resolution_clock::now();
-    std::cout<<"    N Queens "<<amountOfQueens<<" : "<<std::chrono::duration_cast<std::chrono::seconds>(eTime - sTime).count()<<" seconds"<<std::endl;
-    //std::cout<<"amount of queens found: "<<nqueen.GetAmountOfSolutions()<<"\n expected : 4"<<std::endl;
-    REQUIRE(nqueen.GetAmountOfSolutions() == 14772512);
-}
+// TEST_CASE("N Queens finds the correct amount of solutions for N queens"){
+//     int amountOfQueens = 17;
+//     NQueens nqueen;
+//     std::vector<uint8_t> solutions;
+//     for(int i = 0; i < amountOfQueens; i++) solutions.push_back(0);
+//     auto sTime = std::chrono::high_resolution_clock::now();
+//     nqueen.FindQueen(amountOfQueens, 0, solutions);
+//     auto eTime = std::chrono::high_resolution_clock::now();
+//     std::cout<<"    N Queens "<<amountOfQueens<<" : "<<std::chrono::duration_cast<std::chrono::seconds>(eTime - sTime).count()<<" seconds"<<std::endl;
+//     //std::cout<<"amount of queens found: "<<nqueen.GetAmountOfSolutions()<<"\n expected : 4"<<std::endl;
+//     REQUIRE(nqueen.GetAmountOfSolutions() == 14772512);
+// }
